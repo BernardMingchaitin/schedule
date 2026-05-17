@@ -9,7 +9,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --primary: #1890ff;
-      --primary-hover: #40a9ff;
       --success: #52c41a;
       --danger: #ff4d4f;
       --warning: #faad14;
@@ -17,7 +16,6 @@
       --bg: #f0f2f5;
       --card: #fff;
       --text: #333;
-      --text-secondary: #666;
       --border: #f0f0f0;
     }
     body {
@@ -28,41 +26,19 @@
     }
     .app { max-width: 1200px; margin: 0 auto; }
 
-    .sync-status {
-      position: fixed; top: 10px; right: 10px;
-      padding: 6px 12px; border-radius: 20px;
-      font-size: 12px; z-index: 100;
-      display: flex; align-items: center; gap: 6px;
-    }
-    .sync-status.online { background: #f6ffed; color: var(--success); }
-    .sync-status.offline { background: #fff1f0; color: var(--danger); }
-    .sync-status.syncing { background: #e6f7ff; color: var(--primary); }
-    .sync-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
-    .sync-status.syncing .sync-dot { animation: pulse 1s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-    .config-btn {
-      position: fixed; top: 10px; left: 10px;
-      width: 32px; height: 32px; border-radius: 50%;
-      border: none; background: var(--card);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      cursor: pointer; font-size: 16px; z-index: 100;
-    }
-
     .toolbar {
       background: var(--card); border-radius: 8px;
       padding: 16px 20px; margin-bottom: 16px;
-      display: flex; align-items: center; gap: 20px;
+      display: flex; align-items: center; gap: 16px;
       flex-wrap: wrap; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     .toolbar-group { display: flex; align-items: center; gap: 8px; }
-    .toolbar-group label { font-size: 14px; color: var(--text-secondary); white-space: nowrap; }
+    .toolbar-group label { font-size: 14px; color: #666; white-space: nowrap; }
     .toolbar-group select {
       padding: 8px 12px; border: 1px solid #d9d9d9;
       border-radius: 6px; font-size: 14px;
-      background: var(--card); cursor: pointer; min-width: 80px;
+      background: var(--card); cursor: pointer;
     }
-    .toolbar-group select:focus { outline: none; border-color: var(--primary); }
     .btn {
       padding: 8px 16px; border-radius: 6px;
       font-size: 14px; cursor: pointer;
@@ -72,14 +48,13 @@
     }
     .btn:hover { background: #f5f5f5; }
     .btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
-    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-primary:hover { background: #40a9ff; }
     .btn-success { background: var(--success); border-color: var(--success); color: #fff; }
-    .btn-success:hover { background: #73d13d; }
     .hint { margin-left: auto; font-size: 12px; color: #999; }
 
     .legend {
-      display: flex; gap: 16px; font-size: 12px;
-      color: var(--text-secondary); margin-bottom: 12px; padding: 0 4px;
+      display: flex; gap: 16px; font-size: 12px; color: #666;
+      margin-bottom: 12px; padding: 0 4px; flex-wrap: wrap;
     }
     .legend-item { display: flex; align-items: center; gap: 6px; }
     .legend-dot { width: 14px; height: 14px; border-radius: 4px; }
@@ -101,32 +76,28 @@
     .month-nav-btn {
       width: 36px; height: 36px; border: 1px solid #d9d9d9;
       background: var(--card); border-radius: 8px; cursor: pointer;
-      font-size: 18px; color: var(--text-secondary);
+      font-size: 18px; color: #666;
       display: flex; align-items: center; justify-content: center;
-      transition: all 0.2s;
     }
-    .month-nav-btn:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .month-nav-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
     .weekday-row {
       display: grid; grid-template-columns: repeat(7, 1fr);
       background: #fafafa; border-bottom: 1px solid var(--border);
     }
-    .weekday-cell { padding: 12px 8px; text-align: center; font-size: 13px; color: var(--text-secondary); font-weight: 500; }
+    .weekday-cell { padding: 12px 8px; text-align: center; font-size: 13px; color: #666; font-weight: 500; }
     .weekday-cell:nth-child(1), .weekday-cell:nth-child(7) { color: var(--warning); }
     .date-grid { display: grid; grid-template-columns: repeat(7, 1fr); border-top: 1px solid var(--border); }
 
     .date-cell {
       min-height: 100px; padding: 8px;
       border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      cursor: pointer; transition: background 0.15s; position: relative;
+      cursor: pointer; position: relative;
     }
     .date-cell:nth-child(7n) { border-right: none; }
     .date-cell:hover { background: #f5f5f5; }
     .date-cell.weekend { background: #fffbf0; }
-    .date-cell.weekend:hover { background: #fff7e6; }
     .date-cell.holiday { background: #fff1f0; }
-    .date-cell.holiday:hover { background: #ffccc7; }
     .date-cell.adjust-work { background: #e6f7ff; }
-    .date-cell.adjust-work:hover { background: #bae7ff; }
     .date-cell.today { box-shadow: inset 0 0 0 2px var(--primary); }
     .date-cell.empty { background: #fafafa; cursor: default; }
     .date-cell.empty:hover { background: #fafafa; }
@@ -148,10 +119,8 @@
       flex-shrink: 0; width: 16px; height: 16px;
       border-radius: 4px; border: 1.5px solid currentColor;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
-      font-size: 10px; margin-top: 1px;
-      transition: all 0.15s; background: rgba(255,255,255,0.8);
+      font-size: 10px; margin-top: 1px; background: rgba(255,255,255,0.8);
     }
-    .task-check:hover { background: rgba(255,255,255,1); transform: scale(1.1); }
     .task-item.done .task-check { background: currentColor; }
     .task-item.done .task-check::after { content: '✓'; color: #fff; }
 
@@ -179,7 +148,7 @@
       width: 32px; height: 32px; border: none; background: transparent;
       font-size: 22px; color: #999; cursor: pointer; border-radius: 6px;
     }
-    .modal-close:hover { background: #f5f5f5; color: var(--text); }
+    .modal-close:hover { background: #f5f5f5; }
     .modal-body { padding: 20px; overflow-y: auto; max-height: calc(90vh - 140px); }
 
     .period-section { margin-bottom: 20px; }
@@ -207,15 +176,14 @@
       border: 2px solid #d9d9d9; border-radius: 4px;
       cursor: pointer; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 12px; transition: all 0.2s;
+      color: #fff; font-size: 12px;
     }
-    .checkbox:hover { border-color: var(--primary); }
     .edit-task-item.done .checkbox { background: var(--success); border-color: var(--success); }
     .edit-task-text { flex: 1; font-size: 13px; word-break: break-all; }
     .delete-btn {
       width: 24px; height: 24px; border: none; background: transparent;
       color: #bfbfbf; cursor: pointer; font-size: 18px;
-      border-radius: 4px; opacity: 0; transition: all 0.2s;
+      border-radius: 4px; opacity: 0;
     }
     .edit-task-item:hover .delete-btn { opacity: 1; }
     .delete-btn:hover { background: #fff1f0; color: var(--danger); }
@@ -231,77 +199,55 @@
       font-size: 13px; cursor: pointer; font-weight: 500;
     }
     .period-section.morning .add-btn { background: var(--primary); color: #fff; }
-    .period-section.morning .add-btn:hover { background: var(--primary-hover); }
     .period-section.afternoon .add-btn { background: var(--purple); color: #fff; }
-    .period-section.afternoon .add-btn:hover { background: #9254de; }
     .modal-footer {
       padding: 16px 20px; border-top: 1px solid var(--border);
       display: flex; justify-content: flex-end; gap: 12px;
     }
-
-    .config-modal { width: 420px; }
-    .config-input {
-      width: 100%; padding: 10px 12px;
-      border: 1px solid #d9d9d9; border-radius: 6px;
-      font-size: 14px; margin-bottom: 12px;
-    }
-    .config-input:focus { outline: none; border-color: var(--primary); }
-    .config-tip { font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.6; }
-    .config-tip code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
 
     .toast {
       position: fixed; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       background: #333; color: #fff;
       padding: 12px 24px; border-radius: 8px;
-      font-size: 14px; opacity: 0;
-      transition: opacity 0.3s; z-index: 2000;
+      font-size: 14px; opacity: 0; z-index: 2000;
     }
     .toast.show { opacity: 1; }
+
+    /* 同步面板 */
+    .sync-panel {
+      background: var(--card); border-radius: 8px;
+      padding: 16px; margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .sync-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .sync-textarea {
+      width: 100%; height: 80px;
+      border: 1px solid #d9d9d9; border-radius: 6px;
+      padding: 10px; font-size: 12px; font-family: monospace;
+      resize: vertical;
+    }
+    .sync-btns { display: flex; gap: 8px; margin-top: 10px; }
 
     @media (max-width: 768px) {
       body { padding: 10px; }
       .toolbar { padding: 12px; gap: 10px; justify-content: center; }
-      .toolbar-group select { padding: 10px 14px; font-size: 16px; min-width: 90px; }
-      .btn { padding: 10px 14px; font-size: 15px; min-height: 44px; }
+      .btn { padding: 10px 14px; font-size: 14px; min-height: 44px; }
       .hint { display: none; }
-      .legend { flex-wrap: wrap; gap: 8px 16px; font-size: 11px; margin-bottom: 10px; }
-      .calendar-header { padding: 12px; gap: 16px; }
-      .calendar-title { font-size: 17px; min-width: 100px; }
-      .month-nav-btn { width: 44px; height: 44px; font-size: 22px; }
-      .weekday-cell { padding: 8px 4px; font-size: 12px; }
+      .calendar-header { padding: 12px; }
+      .calendar-title { font-size: 16px; }
+      .month-nav-btn { width: 44px; height: 44px; }
       .date-cell { min-height: 60px; padding: 6px 4px; }
-      .date-num { font-size: 14px; margin-bottom: 4px; }
-      .schedule-content { font-size: 10px; line-height: 1.4; }
-      .period-text { margin-bottom: 3px; padding: 3px 4px; }
-      .task-check { width: 18px; height: 18px; }
-      .task-text { font-size: 10px; }
+      .date-num { font-size: 14px; }
+      .schedule-content { font-size: 10px; }
       .modal-overlay { padding: 0; align-items: flex-end; }
-      .modal { width: 100%; max-width: 100%; max-height: 85vh; border-radius: 16px 16px 0 0; }
-      .modal-header { padding: 14px 16px; }
-      .modal-close { width: 36px; height: 36px; font-size: 24px; }
-      .modal-body { padding: 16px; max-height: calc(85vh - 130px); }
-      .edit-task-item { padding: 12px; }
-      .checkbox { width: 24px; height: 24px; }
-      .edit-task-text { font-size: 14px; }
-      .delete-btn { width: 28px; height: 28px; font-size: 20px; opacity: 1; }
-      .add-input { padding: 12px; font-size: 16px; }
-      .add-btn { padding: 12px 18px; font-size: 15px; min-height: 48px; }
-      .modal-footer { padding: 12px 16px; gap: 10px; }
-      .modal-footer .btn { flex: 1; padding: 12px; font-size: 15px; }
-      .sync-status { top: 5px; right: 5px; font-size: 11px; padding: 4px 10px; }
-      .config-btn { top: 5px; left: 5px; }
+      .modal { width: 100%; border-radius: 16px 16px 0 0; }
+      .edit-task-item .delete-btn { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <div class="app">
-    <div class="sync-status offline" id="syncStatus">
-      <span class="sync-dot"></span>
-      <span id="syncText">未配置</span>
-    </div>
-    <button class="config-btn" onclick="openConfig()">⚙️</button>
-
     <div class="toolbar">
       <div class="toolbar-group">
         <label>年份</label>
@@ -314,6 +260,16 @@
       <button class="btn btn-success" onclick="exportExcel()">📊 导出Excel</button>
       <button class="btn" onclick="updateHolidays()">🔄 更新节假日</button>
       <span class="hint" id="editHint">双击日期编辑</span>
+    </div>
+
+    <!-- 同步面板 -->
+    <div class="sync-panel">
+      <div class="sync-title">📤 数据同步（跨设备）</div>
+      <textarea class="sync-textarea" id="syncData" readonly placeholder="点击「导出数据」生成同步码..."></textarea>
+      <div class="sync-btns">
+        <button class="btn btn-primary" onclick="exportSyncData()">导出数据</button>
+        <button class="btn" onclick="importSyncData()">导入数据</button>
+      </div>
     </div>
 
     <div class="legend">
@@ -343,36 +299,6 @@
     </div>
   </div>
 
-  <!-- 配置弹窗 -->
-  <div class="modal-overlay" id="configModal">
-    <div class="modal config-modal">
-      <div class="modal-header">
-        <div class="modal-title">⚙️ 云端同步配置</div>
-        <button class="modal-close" onclick="closeConfig()">×</button>
-      </div>
-      <div class="modal-body">
-        <div class="config-tip">
-          <strong>快速配置：</strong>输入一个唯一的「同步ID」，多个设备使用相同ID即可同步数据。<br>
-          例如：<code>my-schedule-2024</code>
-        </div>
-        <input type="text" class="config-input" id="syncIdInput" placeholder="输入同步ID（任意英文字符）">
-        <div style="font-size:12px;color:#999;margin-bottom:16px;">
-          💡 提示：同步ID相当于密码，请勿泄露给他人
-        </div>
-        <div class="config-tip" style="border-top:1px solid #eee;padding-top:12px;margin-top:12px;">
-          <strong>高级配置（可选）：</strong>使用自己的 Supabase 数据库
-        </div>
-        <input type="text" class="config-input" id="supabaseUrlInput" placeholder="Supabase URL（可选）">
-        <input type="text" class="config-input" id="supabaseKeyInput" placeholder="Supabase Anon Key（可选）">
-      </div>
-      <div class="modal-footer">
-        <button class="btn" onclick="closeConfig()">取消</button>
-        <button class="btn btn-primary" onclick="saveConfig()">保存配置</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 编辑弹窗 -->
   <div class="modal-overlay" id="modal">
     <div class="modal">
       <div class="modal-header">
@@ -406,15 +332,7 @@
 
   <div class="toast" id="toast"></div>
 
-  <!-- Supabase SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // 默认公共数据库（已预配置）
-    const DEFAULT_SUPABASE_URL = 'https://vsjcdqffbscqtbdpdwxm.supabase.co';
-    const DEFAULT_SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzamNkcWZmYnNjcXRiZHBkd3htIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU5MzY2NjYsImV4cCI6MjAzMTUxMjY2Nn0.cJdGQZVLmDpE_Q6ZxGqLwB5YgX6MhwbKMlPZBKvq6YI';
-
-    let supabase = null;
-    let syncId = localStorage.getItem('schedule_sync_id') || '';
     let schedules = {};
     let holidays = {};
     let currentYear, currentMonth, currentDate;
@@ -462,160 +380,67 @@
       "2026-10-10": { name: "国庆补班", holiday: false }
     };
 
-    function updateSyncStatus(status, text) {
-      const el = document.getElementById('syncStatus');
-      const textEl = document.getElementById('syncText');
-      el.className = 'sync-status ' + status;
-      textEl.textContent = text;
+    function loadLocal() {
+      const s = localStorage.getItem('schedules_v6');
+      if (s) schedules = JSON.parse(s);
+      const h = localStorage.getItem('holidays_v6');
+      holidays = h ? JSON.parse(h) : { ...defaultHolidays };
     }
 
-    async function initSupabase() {
-      const customUrl = localStorage.getItem('schedule_supabase_url');
-      const customKey = localStorage.getItem('schedule_supabase_key');
-      const url = customUrl || DEFAULT_SUPABASE_URL;
-      const key = customKey || DEFAULT_SUPABASE_KEY;
-
-      supabase = window.supabase.createClient(url, key);
-
-      if (syncId) {
-        await loadFromCloud();
-        // 实时监听数据变化
-        supabase.channel('schedule-changes')
-          .on('postgres_changes', { event: '*', schema: 'public', table: 'schedules', filter: `sync_id=eq.${syncId}` }, () => {
-            loadFromCloud();
-          })
-          .subscribe();
-      }
+    function saveLocal() {
+      localStorage.setItem('schedules_v6', JSON.stringify(schedules));
+      localStorage.setItem('holidays_v6', JSON.stringify(holidays));
     }
 
-    async function loadFromCloud() {
-      if (!syncId) {
-        const saved = localStorage.getItem('schedules_local');
-        if (saved) schedules = JSON.parse(saved);
-        const savedHolidays = localStorage.getItem('holidays_local');
-        holidays = savedHolidays ? JSON.parse(savedHolidays) : { ...defaultHolidays };
-        updateSyncStatus('offline', '未配置');
-        return;
-      }
+    function exportSyncData() {
+      const data = JSON.stringify({ schedules, holidays });
+      document.getElementById('syncData').value = data;
+      navigator.clipboard.writeText(data).then(() => {
+        showToast('数据已复制到剪贴板，粘贴到其他设备即可同步');
+      }).catch(() => {
+        showToast('数据已导出，请手动复制');
+      });
+    }
 
-      updateSyncStatus('syncing', '同步中...');
-
+    function importSyncData() {
+      const input = prompt('请粘贴同步数据：');
+      if (!input) return;
       try {
-        // 加载日程
-        const { data: scheduleData, error: err1 } = await supabase
-          .from('schedules')
-          .select('data')
-          .eq('sync_id', syncId)
-          .single();
-
-        if (scheduleData?.data) {
-          schedules = scheduleData.data;
-        }
-
-        // 加载节假日
-        const { data: holidayData } = await supabase
-          .from('holidays')
-          .select('data')
-          .eq('sync_id', syncId)
-          .single();
-
-        if (holidayData?.data) {
-          holidays = holidayData.data;
-        } else {
-          holidays = { ...defaultHolidays };
-        }
-
-        // 保存到本地缓存
-        localStorage.setItem('schedules_local', JSON.stringify(schedules));
-        localStorage.setItem('holidays_local', JSON.stringify(holidays));
-
-        updateSyncStatus('online', '已同步');
+        const data = JSON.parse(input);
+        if (data.schedules) schedules = data.schedules;
+        if (data.holidays) holidays = data.holidays;
+        saveLocal();
         renderCalendar();
+        showToast('数据导入成功');
       } catch (e) {
-        console.error('加载失败:', e);
-        const saved = localStorage.getItem('schedules_local');
-        if (saved) schedules = JSON.parse(saved);
-        updateSyncStatus('offline', '离线');
+        showToast('数据格式错误');
       }
     }
 
-    async function saveToCloud() {
-      localStorage.setItem('schedules_local', JSON.stringify(schedules));
-      localStorage.setItem('holidays_local', JSON.stringify(holidays));
-
-      if (!syncId) {
-        updateSyncStatus('offline', '未配置');
-        return;
-      }
-
-      updateSyncStatus('syncing', '保存中...');
-
+    async function updateHolidays() {
+      showToast('正在更新...');
       try {
-        // 保存日程
-        await supabase.from('schedules').upsert({
-          sync_id: syncId,
-          data: schedules,
-          updated_at: new Date().toISOString()
-        }, { onConflict: 'sync_id' });
-
-        // 保存节假日
-        await supabase.from('holidays').upsert({
-          sync_id: syncId,
-          data: holidays,
-          updated_at: new Date().toISOString()
-        }, { onConflict: 'sync_id' });
-
-        updateSyncStatus('online', '已同步');
+        const res = await fetch(`https://date.appworlds.cn/year/${currentYear}`);
+        const result = await res.json();
+        if (result.code === 200 && result.data) {
+          result.data.forEach(item => {
+            holidays[item.date] = { name: item.name, holiday: item.holiday };
+          });
+          saveLocal();
+          renderCalendar();
+          showToast('节假日已更新');
+        }
       } catch (e) {
-        console.error('保存失败:', e);
-        updateSyncStatus('offline', '离线');
+        showToast('网络错误，请稍后重试');
       }
     }
 
-    function openConfig() {
-      document.getElementById('syncIdInput').value = syncId;
-      document.getElementById('supabaseUrlInput').value = localStorage.getItem('schedule_supabase_url') || '';
-      document.getElementById('supabaseKeyInput').value = localStorage.getItem('schedule_supabase_key') || '';
-      document.getElementById('configModal').classList.add('active');
-    }
-
-    function closeConfig() {
-      document.getElementById('configModal').classList.remove('active');
-    }
-
-    async function saveConfig() {
-      syncId = document.getElementById('syncIdInput').value.trim();
-      const customUrl = document.getElementById('supabaseUrlInput').value.trim();
-      const customKey = document.getElementById('supabaseKeyInput').value.trim();
-
-      localStorage.setItem('schedule_sync_id', syncId);
-      if (customUrl) localStorage.setItem('schedule_supabase_url', customUrl);
-      if (customKey) localStorage.setItem('schedule_supabase_key', customKey);
-
-      closeConfig();
-      showToast('配置已保存');
-
-      if (syncId) {
-        await initSupabase();
-        await loadFromCloud();
-        renderCalendar();
-      }
-    }
-
-    async function init() {
+    function init() {
       const now = new Date();
       currentYear = now.getFullYear();
       currentMonth = now.getMonth();
-
       document.getElementById('editHint').textContent = isMobile ? '单击日期编辑' : '双击日期编辑';
-
-      await initSupabase();
-      await loadFromCloud();
-
-      if (Object.keys(holidays).length === 0) {
-        holidays = { ...defaultHolidays };
-      }
-
+      loadLocal();
       renderSelectors();
       renderCalendar();
     }
@@ -623,7 +448,6 @@
     function renderSelectors() {
       const yearSel = document.getElementById('yearSelect');
       const monthSel = document.getElementById('monthSelect');
-
       yearSel.innerHTML = '';
       for (let y = 2020; y <= 2035; y++) {
         const opt = document.createElement('option');
@@ -631,7 +455,6 @@
         if (y === currentYear) opt.selected = true;
         yearSel.appendChild(opt);
       }
-
       monthSel.innerHTML = '';
       for (let m = 0; m < 12; m++) {
         const opt = document.createElement('option');
@@ -642,8 +465,8 @@
     }
 
     function refresh() {
-      currentYear = parseInt(document.getElementById('yearSelect').value);
-      currentMonth = parseInt(document.getElementById('monthSelect').value);
+      currentYear = +document.getElementById('yearSelect').value;
+      currentMonth = +document.getElementById('monthSelect').value;
       renderCalendar();
     }
 
@@ -665,7 +488,6 @@
 
     function renderCalendar() {
       document.getElementById('calendarTitle').textContent = `${currentYear}年${currentMonth + 1}月`;
-
       const grid = document.getElementById('dateGrid');
       grid.innerHTML = '';
 
@@ -684,14 +506,13 @@
         const day = new Date(currentYear, currentMonth, d).getDay();
         const isWeekend = day === 0 || day === 6;
         const isToday = dateStr === today;
-        const holidayInfo = holidays[dateStr];
-        const isHoliday = holidayInfo?.holiday === true;
-        const isAdjust = holidayInfo?.holiday === false;
+        const hInfo = holidays[dateStr];
+        const isHoliday = hInfo?.holiday === true;
+        const isAdjust = hInfo?.holiday === false;
         const daySchedule = schedules[dateStr];
 
         const cell = document.createElement('div');
         cell.className = 'date-cell';
-
         if (isHoliday) cell.classList.add('holiday');
         else if (isAdjust) cell.classList.add('adjust-work');
         else if (isWeekend) cell.classList.add('weekend');
@@ -702,10 +523,10 @@
         numEl.textContent = d;
         cell.appendChild(numEl);
 
-        if (holidayInfo) {
+        if (hInfo) {
           const nameEl = document.createElement('div');
           nameEl.className = isHoliday ? 'holiday-name' : 'adjust-name';
-          nameEl.textContent = holidayInfo.name;
+          nameEl.textContent = hInfo.name;
           cell.appendChild(nameEl);
         }
 
@@ -714,34 +535,34 @@
           contentEl.className = 'schedule-content';
 
           if (daySchedule.morning?.length) {
-            const morningEl = document.createElement('div');
-            morningEl.className = 'period-text morning';
-            daySchedule.morning.forEach((task, idx) => {
-              const taskEl = document.createElement('div');
-              taskEl.className = 'task-item' + (task.done ? ' done' : '');
-              taskEl.innerHTML = `<span class="task-check" onclick="event.stopPropagation();toggleTaskDirect('${dateStr}','morning',${idx})"></span><span class="task-text">${escapeHtml(task.text)}</span>`;
-              morningEl.appendChild(taskEl);
+            const mEl = document.createElement('div');
+            mEl.className = 'period-text morning';
+            daySchedule.morning.forEach((t, i) => {
+              const tEl = document.createElement('div');
+              tEl.className = 'task-item' + (t.done ? ' done' : '');
+              tEl.innerHTML = `<span class="task-check" onclick="event.stopPropagation();toggleDirect('${dateStr}','morning',${i})"></span><span class="task-text">${esc(t.text)}</span>`;
+              mEl.appendChild(tEl);
             });
-            contentEl.appendChild(morningEl);
+            contentEl.appendChild(mEl);
           }
 
           if (daySchedule.afternoon?.length) {
-            const afternoonEl = document.createElement('div');
-            afternoonEl.className = 'period-text afternoon';
-            daySchedule.afternoon.forEach((task, idx) => {
-              const taskEl = document.createElement('div');
-              taskEl.className = 'task-item' + (task.done ? ' done' : '');
-              taskEl.innerHTML = `<span class="task-check" onclick="event.stopPropagation();toggleTaskDirect('${dateStr}','afternoon',${idx})"></span><span class="task-text">${escapeHtml(task.text)}</span>`;
-              afternoonEl.appendChild(taskEl);
+            const aEl = document.createElement('div');
+            aEl.className = 'period-text afternoon';
+            daySchedule.afternoon.forEach((t, i) => {
+              const tEl = document.createElement('div');
+              tEl.className = 'task-item' + (t.done ? ' done' : '');
+              tEl.innerHTML = `<span class="task-check" onclick="event.stopPropagation();toggleDirect('${dateStr}','afternoon',${i})"></span><span class="task-text">${esc(t.text)}</span>`;
+              aEl.appendChild(tEl);
             });
-            contentEl.appendChild(afternoonEl);
+            contentEl.appendChild(aEl);
           }
 
           cell.appendChild(contentEl);
         }
 
         if (isMobile) {
-          cell.onclick = (e) => {
+          cell.onclick = e => {
             if (e.target.classList.contains('task-check')) return;
             openModal(dateStr);
           };
@@ -761,18 +582,15 @@
       currentDate = dateStr;
       const weekdays = ['周日','周一','周二','周三','周四','周五','周六'];
       const d = new Date(dateStr.replace(/-/g, '/'));
-
       const modalDate = document.getElementById('modalDate');
       modalDate.textContent = `${dateStr} ${weekdays[d.getDay()]}`;
-
-      const holidayInfo = holidays[dateStr];
-      if (holidayInfo) {
-        modalDate.textContent += ` (${holidayInfo.name})`;
-        modalDate.className = 'modal-date ' + (holidayInfo.holiday ? 'holiday' : 'adjust');
+      const hInfo = holidays[dateStr];
+      if (hInfo) {
+        modalDate.textContent += ` (${hInfo.name})`;
+        modalDate.className = 'modal-date ' + (hInfo.holiday ? 'holiday' : 'adjust');
       } else {
         modalDate.className = 'modal-date';
       }
-
       renderTasks();
       document.getElementById('modal').classList.add('active');
       setTimeout(() => document.getElementById('morningInput').focus(), 100);
@@ -786,64 +604,62 @@
 
     function renderTasks() {
       const data = schedules[currentDate] || { morning: [], afternoon: [] };
-      document.getElementById('morningList').innerHTML = renderEditList(data.morning || [], 'morning');
-      document.getElementById('afternoonList').innerHTML = renderEditList(data.afternoon || [], 'afternoon');
+      document.getElementById('morningList').innerHTML = renderList(data.morning || [], 'morning');
+      document.getElementById('afternoonList').innerHTML = renderList(data.afternoon || [], 'afternoon');
     }
 
-    function renderEditList(tasks, period) {
+    function renderList(tasks, period) {
       if (!tasks.length) return '<div class="empty-tip">暂无任务</div>';
       return tasks.map((t, i) => `
         <div class="edit-task-item ${t.done ? 'done' : ''}">
-          <div class="checkbox" onclick="toggleTask('${period}', ${i})">${t.done ? '✓' : ''}</div>
-          <div class="edit-task-text">${escapeHtml(t.text)}</div>
-          <button class="delete-btn" onclick="deleteTask('${period}', ${i})">×</button>
+          <div class="checkbox" onclick="toggle('${period}',${i})">${t.done ? '✓' : ''}</div>
+          <div class="edit-task-text">${esc(t.text)}</div>
+          <button class="delete-btn" onclick="del('${period}',${i})">×</button>
         </div>
       `).join('');
     }
 
-    function escapeHtml(s) {
+    function esc(s) {
       const d = document.createElement('div');
       d.textContent = s;
       return d.innerHTML;
     }
 
-    async function addTask(period) {
+    function addTask(period) {
       const input = document.getElementById(period + 'Input');
       const text = input.value.trim();
       if (!text) return;
-
       if (!schedules[currentDate]) schedules[currentDate] = { morning: [], afternoon: [] };
       schedules[currentDate][period] = schedules[currentDate][period] || [];
       schedules[currentDate][period].push({ text, done: false });
-
-      await saveToCloud();
+      saveLocal();
       renderTasks();
       input.value = '';
       input.focus();
     }
 
-    async function toggleTask(period, idx) {
+    function toggle(period, idx) {
       if (schedules[currentDate]?.[period]?.[idx] !== undefined) {
         schedules[currentDate][period][idx].done = !schedules[currentDate][period][idx].done;
-        await saveToCloud();
+        saveLocal();
         renderTasks();
       }
     }
 
-    async function toggleTaskDirect(dateStr, period, idx) {
+    function toggleDirect(dateStr, period, idx) {
       if (schedules[dateStr]?.[period]?.[idx] !== undefined) {
         schedules[dateStr][period][idx].done = !schedules[dateStr][period][idx].done;
-        await saveToCloud();
+        saveLocal();
         renderCalendar();
       }
     }
 
-    async function deleteTask(period, idx) {
+    function del(period, idx) {
       if (schedules[currentDate]?.[period]) {
         schedules[currentDate][period].splice(idx, 1);
         const d = schedules[currentDate];
-        if ((!d.morning?.length) && (!d.afternoon?.length)) delete schedules[currentDate];
-        await saveToCloud();
+        if (!d.morning?.length && !d.afternoon?.length) delete schedules[currentDate];
+        saveLocal();
         renderTasks();
       }
     }
@@ -851,24 +667,6 @@
     function saveAndClose() {
       showToast('已保存');
       closeModal();
-    }
-
-    async function updateHolidays() {
-      showToast('正在更新节假日...');
-      try {
-        const res = await fetch(`https://date.appworlds.cn/year/${currentYear}`);
-        const result = await res.json();
-        if (result.code === 200 && result.data) {
-          result.data.forEach(item => {
-            holidays[item.date] = { name: item.name, holiday: item.holiday };
-          });
-          await saveToCloud();
-          showToast(`${currentYear}年节假日已更新`);
-          renderCalendar();
-        }
-      } catch (e) {
-        showToast('网络错误');
-      }
     }
 
     function exportExcel() {
@@ -905,14 +703,12 @@
     });
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        if (document.getElementById('configModal').classList.contains('active')) closeConfig();
-        else if (currentDate) closeModal();
-      }
+      if (e.key === 'Escape' && currentDate) closeModal();
     });
 
-    document.getElementById('modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
-    document.getElementById('configModal').addEventListener('click', e => { if (e.target.id === 'configModal') closeConfig(); });
+    document.getElementById('modal').addEventListener('click', e => {
+      if (e.target.id === 'modal') closeModal();
+    });
 
     init();
   </script>
