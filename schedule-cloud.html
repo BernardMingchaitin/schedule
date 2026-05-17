@@ -28,86 +28,46 @@
     }
     .app { max-width: 1200px; margin: 0 auto; }
 
-    /* 同步状态 */
     .sync-status {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      position: fixed; top: 10px; right: 10px;
+      padding: 6px 12px; border-radius: 20px;
+      font-size: 12px; z-index: 100;
+      display: flex; align-items: center; gap: 6px;
     }
     .sync-status.online { background: #f6ffed; color: var(--success); }
     .sync-status.offline { background: #fff1f0; color: var(--danger); }
     .sync-status.syncing { background: #e6f7ff; color: var(--primary); }
-    .sync-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-    .sync-status.syncing .sync-dot {
-      animation: pulse 1s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
+    .sync-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .sync-status.syncing .sync-dot { animation: pulse 1s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    /* 配置按钮 */
     .config-btn {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: none;
-      background: var(--card);
+      position: fixed; top: 10px; left: 10px;
+      width: 32px; height: 32px; border-radius: 50%;
+      border: none; background: var(--card);
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      cursor: pointer;
-      font-size: 16px;
-      z-index: 100;
+      cursor: pointer; font-size: 16px; z-index: 100;
     }
 
-    /* 工具栏 */
     .toolbar {
-      background: var(--card);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      background: var(--card); border-radius: 8px;
+      padding: 16px 20px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 20px;
+      flex-wrap: wrap; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     .toolbar-group { display: flex; align-items: center; gap: 8px; }
     .toolbar-group label { font-size: 14px; color: var(--text-secondary); white-space: nowrap; }
     .toolbar-group select {
-      padding: 8px 12px;
-      border: 1px solid #d9d9d9;
-      border-radius: 6px;
-      font-size: 14px;
-      background: var(--card);
-      cursor: pointer;
-      min-width: 80px;
+      padding: 8px 12px; border: 1px solid #d9d9d9;
+      border-radius: 6px; font-size: 14px;
+      background: var(--card); cursor: pointer; min-width: 80px;
     }
     .toolbar-group select:focus { outline: none; border-color: var(--primary); }
     .btn {
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-      border: 1px solid #d9d9d9;
-      background: var(--card);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      padding: 8px 16px; border-radius: 6px;
+      font-size: 14px; cursor: pointer;
+      border: 1px solid #d9d9d9; background: var(--card);
+      display: inline-flex; align-items: center; gap: 6px;
       transition: all 0.2s;
     }
     .btn:hover { background: #f5f5f5; }
@@ -117,14 +77,9 @@
     .btn-success:hover { background: #73d13d; }
     .hint { margin-left: auto; font-size: 12px; color: #999; }
 
-    /* 图例 */
     .legend {
-      display: flex;
-      gap: 16px;
-      font-size: 12px;
-      color: var(--text-secondary);
-      margin-bottom: 12px;
-      padding: 0 4px;
+      display: flex; gap: 16px; font-size: 12px;
+      color: var(--text-secondary); margin-bottom: 12px; padding: 0 4px;
     }
     .legend-item { display: flex; align-items: center; gap: 6px; }
     .legend-dot { width: 14px; height: 14px; border-radius: 4px; }
@@ -134,76 +89,35 @@
     .legend-dot.morning { background: #e6f7ff; border: 1px solid #91d5ff; }
     .legend-dot.afternoon { background: #f9f0ff; border: 1px solid #d3adf7; }
 
-    /* 日历 */
     .calendar {
-      background: var(--card);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      background: var(--card); border-radius: 8px;
+      overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     .calendar-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; gap: 20px;
     }
-    .calendar-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
-      min-width: 120px;
-      text-align: center;
-    }
+    .calendar-title { font-size: 18px; font-weight: 600; color: var(--text); min-width: 120px; text-align: center; }
     .month-nav-btn {
-      width: 36px;
-      height: 36px;
-      border: 1px solid #d9d9d9;
-      background: var(--card);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 18px;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 36px; height: 36px; border: 1px solid #d9d9d9;
+      background: var(--card); border-radius: 8px; cursor: pointer;
+      font-size: 18px; color: var(--text-secondary);
+      display: flex; align-items: center; justify-content: center;
       transition: all 0.2s;
     }
-    .month-nav-btn:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #fff;
-    }
+    .month-nav-btn:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
     .weekday-row {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      background: #fafafa;
-      border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      background: #fafafa; border-bottom: 1px solid var(--border);
     }
-    .weekday-cell {
-      padding: 12px 8px;
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
+    .weekday-cell { padding: 12px 8px; text-align: center; font-size: 13px; color: var(--text-secondary); font-weight: 500; }
     .weekday-cell:nth-child(1), .weekday-cell:nth-child(7) { color: var(--warning); }
-    .date-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      border-top: 1px solid var(--border);
-    }
+    .date-grid { display: grid; grid-template-columns: repeat(7, 1fr); border-top: 1px solid var(--border); }
 
-    /* 日期单元格 */
     .date-cell {
-      min-height: 100px;
-      padding: 8px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      transition: background 0.15s;
-      position: relative;
+      min-height: 100px; padding: 8px;
+      border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      cursor: pointer; transition: background 0.15s; position: relative;
     }
     .date-cell:nth-child(7n) { border-right: none; }
     .date-cell:hover { background: #f5f5f5; }
@@ -224,7 +138,6 @@
     .holiday-name { font-size: 11px; color: var(--danger); margin-bottom: 4px; }
     .adjust-name { font-size: 11px; color: var(--primary); margin-bottom: 4px; }
 
-    /* 日程内容 */
     .schedule-content { font-size: 12px; line-height: 1.5; }
     .period-text { margin-bottom: 4px; padding: 4px 6px; border-radius: 4px; word-break: break-all; }
     .period-text.morning { background: #e6f7ff; color: var(--primary); }
@@ -232,61 +145,39 @@
     .task-item { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 2px; }
     .task-item.done .task-text { text-decoration: line-through; opacity: 0.6; }
     .task-check {
-      flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      border: 1.5px solid currentColor;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      margin-top: 1px;
-      transition: all 0.15s;
-      background: rgba(255,255,255,0.8);
+      flex-shrink: 0; width: 16px; height: 16px;
+      border-radius: 4px; border: 1.5px solid currentColor;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 10px; margin-top: 1px;
+      transition: all 0.15s; background: rgba(255,255,255,0.8);
     }
     .task-check:hover { background: rgba(255,255,255,1); transform: scale(1.1); }
     .task-item.done .task-check { background: currentColor; }
     .task-item.done .task-check::after { content: '✓'; color: #fff; }
 
-    /* 弹窗 */
     .modal-overlay {
-      display: none;
-      position: fixed;
+      display: none; position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      background: rgba(0,0,0,0.5); z-index: 1000;
+      align-items: center; justify-content: center; padding: 20px;
     }
     .modal-overlay.active { display: flex; }
     .modal {
-      background: var(--card);
-      border-radius: 12px;
-      width: 500px;
-      max-width: 100%;
-      max-height: 90vh;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      background: var(--card); border-radius: 12px;
+      width: 500px; max-width: 100%; max-height: 90vh;
+      overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     }
     .modal-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
     }
     .modal-title { font-size: 16px; font-weight: 600; color: var(--text); }
     .modal-date { font-size: 13px; margin-left: 8px; font-weight: normal; }
     .modal-date.holiday { color: var(--danger); }
     .modal-date.adjust { color: var(--primary); }
     .modal-close {
-      width: 32px; height: 32px;
-      border: none; background: transparent;
-      font-size: 22px; color: #999;
-      cursor: pointer; border-radius: 6px;
+      width: 32px; height: 32px; border: none; background: transparent;
+      font-size: 22px; color: #999; cursor: pointer; border-radius: 6px;
     }
     .modal-close:hover { background: #f5f5f5; color: var(--text); }
     .modal-body { padding: 20px; overflow-y: auto; max-height: calc(90vh - 140px); }
@@ -322,11 +213,9 @@
     .edit-task-item.done .checkbox { background: var(--success); border-color: var(--success); }
     .edit-task-text { flex: 1; font-size: 13px; word-break: break-all; }
     .delete-btn {
-      width: 24px; height: 24px;
-      border: none; background: transparent;
-      color: #bfbfbf; cursor: pointer;
-      font-size: 18px; border-radius: 4px;
-      opacity: 0; transition: all 0.2s;
+      width: 24px; height: 24px; border: none; background: transparent;
+      color: #bfbfbf; cursor: pointer; font-size: 18px;
+      border-radius: 4px; opacity: 0; transition: all 0.2s;
     }
     .edit-task-item:hover .delete-btn { opacity: 1; }
     .delete-btn:hover { background: #fff1f0; color: var(--danger); }
@@ -350,28 +239,16 @@
       display: flex; justify-content: flex-end; gap: 12px;
     }
 
-    /* 配置弹窗 */
-    .config-modal {
-      width: 400px;
-    }
+    .config-modal { width: 420px; }
     .config-input {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #d9d9d9;
-      border-radius: 6px;
-      font-size: 14px;
-      margin-bottom: 12px;
+      width: 100%; padding: 10px 12px;
+      border: 1px solid #d9d9d9; border-radius: 6px;
+      font-size: 14px; margin-bottom: 12px;
     }
     .config-input:focus { outline: none; border-color: var(--primary); }
-    .config-tip {
-      font-size: 12px;
-      color: #999;
-      margin-bottom: 12px;
-      line-height: 1.6;
-    }
-    .config-tip a { color: var(--primary); }
+    .config-tip { font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.6; }
+    .config-tip code { background: #f5f5f5; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
 
-    /* Toast */
     .toast {
       position: fixed; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
@@ -382,7 +259,6 @@
     }
     .toast.show { opacity: 1; }
 
-    /* 移动端适配 */
     @media (max-width: 768px) {
       body { padding: 10px; }
       .toolbar { padding: 12px; gap: 10px; justify-content: center; }
@@ -390,26 +266,23 @@
       .btn { padding: 10px 14px; font-size: 15px; min-height: 44px; }
       .hint { display: none; }
       .legend { flex-wrap: wrap; gap: 8px 16px; font-size: 11px; margin-bottom: 10px; }
-      .calendar { border-radius: 6px; }
       .calendar-header { padding: 12px; gap: 16px; }
       .calendar-title { font-size: 17px; min-width: 100px; }
       .month-nav-btn { width: 44px; height: 44px; font-size: 22px; }
       .weekday-cell { padding: 8px 4px; font-size: 12px; }
       .date-cell { min-height: 60px; padding: 6px 4px; }
       .date-num { font-size: 14px; margin-bottom: 4px; }
-      .holiday-name, .adjust-name { font-size: 9px; margin-bottom: 2px; }
       .schedule-content { font-size: 10px; line-height: 1.4; }
       .period-text { margin-bottom: 3px; padding: 3px 4px; }
-      .task-item { gap: 4px; margin-bottom: 1px; }
       .task-check { width: 18px; height: 18px; }
-      .task-text { font-size: 10px; line-height: 1.3; }
+      .task-text { font-size: 10px; }
       .modal-overlay { padding: 0; align-items: flex-end; }
       .modal { width: 100%; max-width: 100%; max-height: 85vh; border-radius: 16px 16px 0 0; }
       .modal-header { padding: 14px 16px; }
       .modal-close { width: 36px; height: 36px; font-size: 24px; }
       .modal-body { padding: 16px; max-height: calc(85vh - 130px); }
       .edit-task-item { padding: 12px; }
-      .checkbox { width: 24px; height: 24px; font-size: 14px; }
+      .checkbox { width: 24px; height: 24px; }
       .edit-task-text { font-size: 14px; }
       .delete-btn { width: 28px; height: 28px; font-size: 20px; opacity: 1; }
       .add-input { padding: 12px; font-size: 16px; }
@@ -419,32 +292,16 @@
       .sync-status { top: 5px; right: 5px; font-size: 11px; padding: 4px 10px; }
       .config-btn { top: 5px; left: 5px; }
     }
-
-    @media (max-width: 400px) {
-      .toolbar { padding: 10px; gap: 8px; }
-      .toolbar-group select { min-width: 75px; padding: 8px 10px; }
-      .btn { padding: 8px 10px; font-size: 13px; }
-      .btn span { display: none; }
-      .date-cell { min-height: 50px; padding: 4px 2px; }
-      .date-num { font-size: 12px; }
-      .schedule-content { font-size: 9px; }
-      .task-check { width: 14px; height: 14px; }
-      .task-text { font-size: 9px; }
-    }
   </style>
 </head>
 <body>
   <div class="app">
-    <!-- 同步状态 -->
     <div class="sync-status offline" id="syncStatus">
       <span class="sync-dot"></span>
       <span id="syncText">未配置</span>
     </div>
+    <button class="config-btn" onclick="openConfig()">⚙️</button>
 
-    <!-- 配置按钮 -->
-    <button class="config-btn" onclick="openConfig()" title="配置云端同步">⚙️</button>
-
-    <!-- 工具栏 -->
     <div class="toolbar">
       <div class="toolbar-group">
         <label>年份</label>
@@ -454,16 +311,11 @@
         <label>月份</label>
         <select id="monthSelect" onchange="refresh()"></select>
       </div>
-      <button class="btn btn-success" onclick="exportExcel()">
-        <span>📊</span> 导出Excel
-      </button>
-      <button class="btn" onclick="updateHolidays()">
-        <span>🔄</span> 更新节假日
-      </button>
+      <button class="btn btn-success" onclick="exportExcel()">📊 导出Excel</button>
+      <button class="btn" onclick="updateHolidays()">🔄 更新节假日</button>
       <span class="hint" id="editHint">双击日期编辑</span>
     </div>
 
-    <!-- 图例 -->
     <div class="legend">
       <div class="legend-item"><div class="legend-dot holiday"></div>法定假日</div>
       <div class="legend-item"><div class="legend-dot work"></div>调休上班</div>
@@ -472,7 +324,6 @@
       <div class="legend-item"><div class="legend-dot afternoon"></div>下午</div>
     </div>
 
-    <!-- 日历 -->
     <div class="calendar">
       <div class="calendar-header">
         <button class="month-nav-btn" onclick="prevMonth()">‹</button>
@@ -501,16 +352,18 @@
       </div>
       <div class="modal-body">
         <div class="config-tip">
-          <strong>获取API密钥：</strong><br>
-          1. 访问 <a href="https://jsonbin.io" target="_blank">jsonbin.io</a> 免费注册<br>
-          2. 登录后点击 "API Keys" 菜单<br>
-          3. 复制 "$2a$10$" 开头的密钥
+          <strong>快速配置：</strong>输入一个唯一的「同步ID」，多个设备使用相同ID即可同步数据。<br>
+          例如：<code>my-schedule-2024</code>
         </div>
-        <input type="text" class="config-input" id="apiKeyInput" placeholder="粘贴 API Key ($2a$10$...)">
-        <div class="config-tip">
-          <strong>Bin ID（可选）：</strong>首次保存后自动生成，多设备同步需要填写相同的ID
+        <input type="text" class="config-input" id="syncIdInput" placeholder="输入同步ID（任意英文字符）">
+        <div style="font-size:12px;color:#999;margin-bottom:16px;">
+          💡 提示：同步ID相当于密码，请勿泄露给他人
         </div>
-        <input type="text" class="config-input" id="binIdInput" placeholder="Bin ID（首次使用留空）">
+        <div class="config-tip" style="border-top:1px solid #eee;padding-top:12px;margin-top:12px;">
+          <strong>高级配置（可选）：</strong>使用自己的 Supabase 数据库
+        </div>
+        <input type="text" class="config-input" id="supabaseUrlInput" placeholder="Supabase URL（可选）">
+        <input type="text" class="config-input" id="supabaseKeyInput" placeholder="Supabase Anon Key（可选）">
       </div>
       <div class="modal-footer">
         <button class="btn" onclick="closeConfig()">取消</button>
@@ -523,17 +376,12 @@
   <div class="modal-overlay" id="modal">
     <div class="modal">
       <div class="modal-header">
-        <div class="modal-title">
-          编辑日程<span class="modal-date" id="modalDate"></span>
-        </div>
+        <div class="modal-title">编辑日程<span class="modal-date" id="modalDate"></span></div>
         <button class="modal-close" onclick="closeModal()">×</button>
       </div>
       <div class="modal-body">
         <div class="period-section morning">
-          <div class="period-header">
-            <span class="period-icon">🌅</span>
-            <span class="period-title">上午</span>
-          </div>
+          <div class="period-header"><span class="period-icon">🌅</span><span class="period-title">上午</span></div>
           <div class="task-list" id="morningList"></div>
           <div class="add-row">
             <input type="text" class="add-input" id="morningInput" placeholder="添加上午任务">
@@ -541,10 +389,7 @@
           </div>
         </div>
         <div class="period-section afternoon">
-          <div class="period-header">
-            <span class="period-icon">🌆</span>
-            <span class="period-title">下午</span>
-          </div>
+          <div class="period-header"><span class="period-icon">🌆</span><span class="period-title">下午</span></div>
           <div class="task-list" id="afternoonList"></div>
           <div class="add-row">
             <input type="text" class="add-input" id="afternoonInput" placeholder="添加下午任务">
@@ -561,11 +406,15 @@
 
   <div class="toast" id="toast"></div>
 
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // ========== 配置 ==========
-    let API_KEY = localStorage.getItem('schedule_api_key') || '';
-    let BIN_ID = localStorage.getItem('schedule_bin_id') || '';
+    // 默认公共数据库（已预配置）
+    const DEFAULT_SUPABASE_URL = 'https://vsjcdqffbscqtbdpdwxm.supabase.co';
+    const DEFAULT_SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzamNkcWZmYnNjcXRiZHBkd3htIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU5MzY2NjYsImV4cCI6MjAzMTUxMjY2Nn0.cJdGQZVLmDpE_Q6ZxGqLwB5YgX6MhwbKMlPZBKvq6YI';
 
+    let supabase = null;
+    let syncId = localStorage.getItem('schedule_sync_id') || '';
     let schedules = {};
     let holidays = {};
     let currentYear, currentMonth, currentDate;
@@ -613,7 +462,6 @@
       "2026-10-10": { name: "国庆补班", holiday: false }
     };
 
-    // ========== 云端同步 ==========
     function updateSyncStatus(status, text) {
       const el = document.getElementById('syncStatus');
       const textEl = document.getElementById('syncText');
@@ -621,52 +469,81 @@
       textEl.textContent = text;
     }
 
+    async function initSupabase() {
+      const customUrl = localStorage.getItem('schedule_supabase_url');
+      const customKey = localStorage.getItem('schedule_supabase_key');
+      const url = customUrl || DEFAULT_SUPABASE_URL;
+      const key = customKey || DEFAULT_SUPABASE_KEY;
+
+      supabase = window.supabase.createClient(url, key);
+
+      if (syncId) {
+        await loadFromCloud();
+        // 实时监听数据变化
+        supabase.channel('schedule-changes')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'schedules', filter: `sync_id=eq.${syncId}` }, () => {
+            loadFromCloud();
+          })
+          .subscribe();
+      }
+    }
+
     async function loadFromCloud() {
-      if (!API_KEY || !BIN_ID) {
-        // 从本地加载
+      if (!syncId) {
         const saved = localStorage.getItem('schedules_local');
         if (saved) schedules = JSON.parse(saved);
         const savedHolidays = localStorage.getItem('holidays_local');
-        if (savedHolidays) holidays = JSON.parse(savedHolidays);
-        else holidays = { ...defaultHolidays };
-
-        updateSyncStatus('offline', API_KEY ? '未关联' : '未配置');
-        return false;
+        holidays = savedHolidays ? JSON.parse(savedHolidays) : { ...defaultHolidays };
+        updateSyncStatus('offline', '未配置');
+        return;
       }
 
       updateSyncStatus('syncing', '同步中...');
 
       try {
-        const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
-          headers: { 'X-Master-Key': API_KEY }
-        });
+        // 加载日程
+        const { data: scheduleData, error: err1 } = await supabase
+          .from('schedules')
+          .select('data')
+          .eq('sync_id', syncId)
+          .single();
 
-        if (response.ok) {
-          const data = await response.json();
-          schedules = data.record.schedules || {};
-          holidays = data.record.holidays || { ...defaultHolidays };
-          localStorage.setItem('schedules_local', JSON.stringify(schedules));
-          localStorage.setItem('holidays_local', JSON.stringify(holidays));
-          updateSyncStatus('online', '已同步');
-          return true;
-        } else {
-          throw new Error('加载失败');
+        if (scheduleData?.data) {
+          schedules = scheduleData.data;
         }
+
+        // 加载节假日
+        const { data: holidayData } = await supabase
+          .from('holidays')
+          .select('data')
+          .eq('sync_id', syncId)
+          .single();
+
+        if (holidayData?.data) {
+          holidays = holidayData.data;
+        } else {
+          holidays = { ...defaultHolidays };
+        }
+
+        // 保存到本地缓存
+        localStorage.setItem('schedules_local', JSON.stringify(schedules));
+        localStorage.setItem('holidays_local', JSON.stringify(holidays));
+
+        updateSyncStatus('online', '已同步');
+        renderCalendar();
       } catch (e) {
-        console.error('云端加载失败:', e);
+        console.error('加载失败:', e);
         const saved = localStorage.getItem('schedules_local');
         if (saved) schedules = JSON.parse(saved);
         updateSyncStatus('offline', '离线');
-        return false;
       }
     }
 
     async function saveToCloud() {
-      // 始终保存到本地
       localStorage.setItem('schedules_local', JSON.stringify(schedules));
       localStorage.setItem('holidays_local', JSON.stringify(holidays));
 
-      if (!API_KEY) {
+      if (!syncId) {
         updateSyncStatus('offline', '未配置');
         return;
       }
@@ -674,43 +551,31 @@
       updateSyncStatus('syncing', '保存中...');
 
       try {
-        if (BIN_ID) {
-          // 更新现有数据
-          await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-Master-Key': API_KEY
-            },
-            body: JSON.stringify({ schedules, holidays, updatedAt: new Date().toISOString() })
-          });
-        } else {
-          // 创建新数据
-          const response = await fetch('https://api.jsonbin.io/v3/b', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-Master-Key': API_KEY,
-              'X-Bin-Name': 'schedule-data'
-            },
-            body: JSON.stringify({ schedules, holidays, updatedAt: new Date().toISOString() })
-          });
-          const data = await response.json();
-          BIN_ID = data.metadata.id;
-          localStorage.setItem('schedule_bin_id', BIN_ID);
-          showToast('已创建云端数据，Bin ID: ' + BIN_ID);
-        }
+        // 保存日程
+        await supabase.from('schedules').upsert({
+          sync_id: syncId,
+          data: schedules,
+          updated_at: new Date().toISOString()
+        }, { onConflict: 'sync_id' });
+
+        // 保存节假日
+        await supabase.from('holidays').upsert({
+          sync_id: syncId,
+          data: holidays,
+          updated_at: new Date().toISOString()
+        }, { onConflict: 'sync_id' });
+
         updateSyncStatus('online', '已同步');
       } catch (e) {
-        console.error('云端保存失败:', e);
+        console.error('保存失败:', e);
         updateSyncStatus('offline', '离线');
       }
     }
 
-    // ========== 配置弹窗 ==========
     function openConfig() {
-      document.getElementById('apiKeyInput').value = API_KEY;
-      document.getElementById('binIdInput').value = BIN_ID;
+      document.getElementById('syncIdInput').value = syncId;
+      document.getElementById('supabaseUrlInput').value = localStorage.getItem('schedule_supabase_url') || '';
+      document.getElementById('supabaseKeyInput').value = localStorage.getItem('schedule_supabase_key') || '';
       document.getElementById('configModal').classList.add('active');
     }
 
@@ -719,24 +584,24 @@
     }
 
     async function saveConfig() {
-      API_KEY = document.getElementById('apiKeyInput').value.trim();
-      BIN_ID = document.getElementById('binIdInput').value.trim();
+      syncId = document.getElementById('syncIdInput').value.trim();
+      const customUrl = document.getElementById('supabaseUrlInput').value.trim();
+      const customKey = document.getElementById('supabaseKeyInput').value.trim();
 
-      localStorage.setItem('schedule_api_key', API_KEY);
-      localStorage.setItem('schedule_bin_id', BIN_ID);
+      localStorage.setItem('schedule_sync_id', syncId);
+      if (customUrl) localStorage.setItem('schedule_supabase_url', customUrl);
+      if (customKey) localStorage.setItem('schedule_supabase_key', customKey);
 
       closeConfig();
+      showToast('配置已保存');
 
-      if (API_KEY) {
-        showToast('配置已保存');
+      if (syncId) {
+        await initSupabase();
         await loadFromCloud();
         renderCalendar();
-      } else {
-        showToast('请输入API Key');
       }
     }
 
-    // ========== 业务逻辑 ==========
     async function init() {
       const now = new Date();
       currentYear = now.getFullYear();
@@ -744,6 +609,7 @@
 
       document.getElementById('editHint').textContent = isMobile ? '单击日期编辑' : '双击日期编辑';
 
+      await initSupabase();
       await loadFromCloud();
 
       if (Object.keys(holidays).length === 0) {
@@ -752,13 +618,6 @@
 
       renderSelectors();
       renderCalendar();
-
-      // 定时同步（每30秒）
-      setInterval(() => {
-        if (API_KEY && BIN_ID) {
-          loadFromCloud();
-        }
-      }, 30000);
     }
 
     function renderSelectors() {
@@ -768,8 +627,7 @@
       yearSel.innerHTML = '';
       for (let y = 2020; y <= 2035; y++) {
         const opt = document.createElement('option');
-        opt.value = y;
-        opt.textContent = y + '年';
+        opt.value = y; opt.textContent = y + '年';
         if (y === currentYear) opt.selected = true;
         yearSel.appendChild(opt);
       }
@@ -777,8 +635,7 @@
       monthSel.innerHTML = '';
       for (let m = 0; m < 12; m++) {
         const opt = document.createElement('option');
-        opt.value = m;
-        opt.textContent = (m + 1) + '月';
+        opt.value = m; opt.textContent = (m + 1) + '月';
         if (m === currentMonth) opt.selected = true;
         monthSel.appendChild(opt);
       }
@@ -792,7 +649,7 @@
 
     function prevMonth() {
       if (currentMonth === 0) { currentMonth = 11; currentYear--; }
-      else { currentMonth--; }
+      else currentMonth--;
       document.getElementById('yearSelect').value = currentYear;
       document.getElementById('monthSelect').value = currentMonth;
       renderCalendar();
@@ -800,7 +657,7 @@
 
     function nextMonth() {
       if (currentMonth === 11) { currentMonth = 0; currentYear++; }
-      else { currentMonth++; }
+      else currentMonth++;
       document.getElementById('yearSelect').value = currentYear;
       document.getElementById('monthSelect').value = currentMonth;
       renderCalendar();
@@ -897,10 +754,7 @@
     }
 
     function formatDate(d) {
-      const y = d.getFullYear();
-      const m = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      return `${y}-${m}-${day}`;
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
     }
 
     function openModal(dateStr) {
@@ -959,7 +813,7 @@
       if (!text) return;
 
       if (!schedules[currentDate]) schedules[currentDate] = { morning: [], afternoon: [] };
-      if (!schedules[currentDate][period]) schedules[currentDate][period] = [];
+      schedules[currentDate][period] = schedules[currentDate][period] || [];
       schedules[currentDate][period].push({ text, done: false });
 
       await saveToCloud();
@@ -987,16 +841,10 @@
     async function deleteTask(period, idx) {
       if (schedules[currentDate]?.[period]) {
         schedules[currentDate][period].splice(idx, 1);
-        cleanEmpty();
+        const d = schedules[currentDate];
+        if ((!d.morning?.length) && (!d.afternoon?.length)) delete schedules[currentDate];
         await saveToCloud();
         renderTasks();
-      }
-    }
-
-    function cleanEmpty() {
-      const d = schedules[currentDate];
-      if (d && (!d.morning?.length) && (!d.afternoon?.length)) {
-        delete schedules[currentDate];
       }
     }
 
@@ -1008,20 +856,15 @@
     async function updateHolidays() {
       showToast('正在更新节假日...');
       try {
-        const response = await fetch(`https://date.appworlds.cn/year/${currentYear}`);
-        const result = await response.json();
-
+        const res = await fetch(`https://date.appworlds.cn/year/${currentYear}`);
+        const result = await res.json();
         if (result.code === 200 && result.data) {
-          const newHolidays = {};
           result.data.forEach(item => {
-            newHolidays[item.date] = { name: item.name, holiday: item.holiday };
+            holidays[item.date] = { name: item.name, holiday: item.holiday };
           });
-          holidays = newHolidays;
           await saveToCloud();
           showToast(`${currentYear}年节假日已更新`);
           renderCalendar();
-        } else {
-          showToast('更新失败');
         }
       } catch (e) {
         showToast('网络错误');
@@ -1029,29 +872,22 @@
     }
 
     function exportExcel() {
-      const year = currentYear;
-      const month = currentMonth;
-      const totalDays = new Date(year, month + 1, 0).getDate();
-
+      const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
       const data = [['年份', '月份', '日期', '上午日程', '下午日程']];
-
       for (let d = 1; d <= totalDays; d++) {
-        const dateStr = formatDate(new Date(year, month, d));
-        const daySchedule = schedules[dateStr] || {};
-
-        const morningText = (daySchedule.morning || []).map(t => (t.done ? '✓ ' : '') + t.text).join('\n');
-        const afternoonText = (daySchedule.afternoon || []).map(t => (t.done ? '✓ ' : '') + t.text).join('\n');
-
-        data.push([year, month + 1, dateStr, morningText, afternoonText]);
+        const dateStr = formatDate(new Date(currentYear, currentMonth, d));
+        const day = schedules[dateStr] || {};
+        data.push([
+          currentYear, currentMonth + 1, dateStr,
+          (day.morning || []).map(t => (t.done ? '✓ ' : '') + t.text).join('\n'),
+          (day.afternoon || []).map(t => (t.done ? '✓ ' : '') + t.text).join('\n')
+        ]);
       }
-
       const ws = XLSX.utils.aoa_to_sheet(data);
       ws['!cols'] = [{ wch: 8 }, { wch: 6 }, { wch: 12 }, { wch: 40 }, { wch: 40 }];
-
       const wb = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, `${year}年${month + 1}月日程`);
-
-      XLSX.writeFile(wb, `日程表_${year}年${month + 1}月.xlsx`);
+      XLSX.utils.book_append_sheet(wb, ws, `${currentYear}年${currentMonth + 1}月`);
+      XLSX.writeFile(wb, `日程表_${currentYear}年${currentMonth + 1}月.xlsx`);
       showToast('导出成功');
     }
 
@@ -1062,7 +898,6 @@
       setTimeout(() => t.classList.remove('show'), 2000);
     }
 
-    // 事件监听
     document.addEventListener('keypress', e => {
       if (!currentDate) return;
       if (e.target.id === 'morningInput' && e.key === 'Enter') addTask('morning');
@@ -1071,23 +906,14 @@
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        if (document.getElementById('configModal').classList.contains('active')) {
-          closeConfig();
-        } else if (currentDate) {
-          closeModal();
-        }
+        if (document.getElementById('configModal').classList.contains('active')) closeConfig();
+        else if (currentDate) closeModal();
       }
     });
 
-    document.getElementById('modal').addEventListener('click', e => {
-      if (e.target.id === 'modal') closeModal();
-    });
+    document.getElementById('modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal(); });
+    document.getElementById('configModal').addEventListener('click', e => { if (e.target.id === 'configModal') closeConfig(); });
 
-    document.getElementById('configModal').addEventListener('click', e => {
-      if (e.target.id === 'configModal') closeConfig();
-    });
-
-    // 启动
     init();
   </script>
 </body>
